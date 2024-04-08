@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -25,19 +23,16 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   final List<int> _counterValues = [];
 
-  void _incrementCounter() {
-    setState(() {
-      _counterValues.add(_counterValues.length + 1);
-    });
-  }
+  void _incrementCounter() =>
+      setState(() => _counterValues.add(_counterValues.length + 1));
 
-  bool isPrime(int number) {
+  bool _isPrime(int number) {
     if (number < 2) return false;
     for (int i = 2; i <= number / i; ++i) {
       if (number % i == 0) return false;
@@ -47,14 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    String titleText;
-    if (isPrime(_counterValues.length)) {
-      titleText = '${_counterValues.length} Nombre premier';
-    } else if (_counterValues.length % 2 == 0) {
-      titleText = '${_counterValues.length} Nombre paire';
-    } else {
-      titleText = '${_counterValues.length} Nombre impaire';
-    }
+    final titleText = _isPrime(_counterValues.length)
+        ? '${_counterValues.length} Nombre premier'
+        : _counterValues.length % 2 == 0
+            ? '${_counterValues.length} Nombre paire'
+            : '${_counterValues.length} Nombre impaire';
 
     return Scaffold(
       appBar: AppBar(
@@ -65,14 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView.builder(
           itemCount: _counterValues.length,
           itemBuilder: (context, index) {
-            String imagePath;
-            if (isPrime(_counterValues[index])) {
-              imagePath = 'images/ananas.png';
-            } else if (_counterValues[index] % 2 == 0) {
-              imagePath = 'images/poire.png';
-            } else {
-              imagePath = 'images/pomme.png';
-            }
+            final imagePath = _isPrime(_counterValues[index])
+                ? 'images/ananas.png'
+                : _counterValues[index] % 2 == 0
+                    ? 'images/poire.png'
+                    : 'images/pomme.png';
             return Container(
               color:
                   _counterValues[index] % 2 == 0 ? Colors.indigo : Colors.cyan,
