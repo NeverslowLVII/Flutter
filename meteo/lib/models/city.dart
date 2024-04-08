@@ -1,8 +1,8 @@
 class City {
-  final String name;
-  final String country;
-  final double latitude;
-  final double longitude;
+  String name;
+  String country;
+  double latitude = 48;
+  double longitude = 3;
 
   City({
     required this.name,
@@ -18,8 +18,8 @@ class City {
     return City(
       name: json['name'],
       country: json['country'],
-      latitude: double.parse(json['latitude']),
-      longitude: double.parse(json['longitude']),
+      latitude: json['latitude'],
+      longitude: json['longitude'],
     );
   }
 }
