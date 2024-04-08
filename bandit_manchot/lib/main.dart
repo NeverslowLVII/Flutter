@@ -59,9 +59,14 @@ class SlotMachineState extends State<SlotMachine> {
     });
   }
 
-  void play() {
+  void play() async {
     setState(() {
       isButtonDisabled = true;
+    });
+
+    await Future.delayed(const Duration(milliseconds: 500));
+
+    setState(() {
       result = List.generate(3, (_) => imgList[random.nextInt(imgList.length)]);
       message = checkResult();
       isButtonDisabled = false;
