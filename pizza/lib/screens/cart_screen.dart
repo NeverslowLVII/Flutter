@@ -29,8 +29,10 @@ class CartScreenState extends State<CartScreen> {
                     itemBuilder: (context, index) {
                       var item = cart.items[index];
                       return ListTile(
-                        leading: Image.network(
-                            'https://pizzas.shrp.dev/assets/${item['image']}'),
+                        leading: item['image'] != null
+                            ? Image.network(
+                                'https://pizzas.shrp.dev/assets/${item['image']}')
+                            : null,
                         title: Text(item['name']),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

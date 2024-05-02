@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:cached_network_image/cached_network_image.dart'; // Added for image caching and lazy loading
+import 'package:cached_network_image/cached_network_image.dart';
 import '../models/cart_model.dart';
 import 'cart_screen.dart';
 
@@ -36,9 +36,10 @@ class DetailsScreen extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    CachedNetworkImage(
-                        imageUrl:
-                            'https://pizzas.shrp.dev/assets/${pizzaDetails['image']}'),
+                    if (pizzaDetails['image'] != null)
+                      CachedNetworkImage(
+                          imageUrl:
+                              'https://pizzas.shrp.dev/assets/${pizzaDetails['image']}'),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Align(
