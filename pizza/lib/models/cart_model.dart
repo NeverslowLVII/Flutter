@@ -10,8 +10,7 @@ class CartModel extends ChangeNotifier {
     if (foundItem != null) {
       foundItem['quantity'] += 1;
     } else {
-      var newItem =
-          Map.from(item); // Create a new Map to avoid modifying the original
+      var newItem = Map.from(item);
       newItem['quantity'] = 1;
       _items.add(newItem);
     }

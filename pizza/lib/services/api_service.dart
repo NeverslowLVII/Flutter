@@ -19,4 +19,29 @@ class ApiService {
       return [];
     }
   }
+
+  Future<void> signUp(String role, String firstname, String lastname,
+      String email, String password) async {
+    const url = 'https://pizzas.shrp.dev/users';
+    try {
+      await _dio.post(url, data: {
+        'role': 'bad526d9-bc5a-45f1-9f0b-eafadcd4fc15',
+        'first_name': firstname,
+        'last_name': lastname,
+        'email': email,
+        'password': password
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<void> signIn(String email, String password) async {
+    const url = 'https://pizzas.shrp.dev/auth/login';
+    try {
+      await _dio.post(url, data: {'email': email, 'password': password});
+    } catch (e) {
+      print(e);
+    }
+  }
 }
