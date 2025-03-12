@@ -1,0 +1,2 @@
+C:/GitHub/Flutter/pizza/android/app/.cxx/Debug/5l6v5049/x86/CMakeFiles/edit_cache.dir
+C:/GitHub/Flutter/pizza/android/app/.cxx/Debug/5l6v5049/x86/CMakeFiles/rebuild_cache.dir

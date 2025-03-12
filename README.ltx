@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Example LaTeX Document}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This is an example LaTeX document. LaTeX is a document preparation system that is widely used for academic and technical documents.
+
+\section{Mathematical Expressions}
+LaTeX is great for typesetting mathematical expressions:
+
+\begin{equation}
+    E = mc^2
+\end{equation}
+
+You can also include inline math like $f(x) = x^2$ within text.
+
+\subsection{More Complex Math}
+\begin{align}
+    \int_{a}^{b} f(x) \, dx &= F(b) - F(a) \\
+    \sum_{i=1}^{n} i &= \frac{n(n+1)}{2}
+\end{align}
+
+\section{Including Figures}
+You can include figures as follows:
+
+\begin{figure}[h]
+    \centering
+    % \includegraphics[width=0.7\textwidth]{example-image}
+    \caption{An example figure}
+    \label{fig:example}
+\end{figure}
+
+\section{Creating Tables}
+Tables are also easy to create:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Cell 1 & Cell 2 & Cell 3 \\
+        \hline
+        A & B & C \\
+        D & E & F \\
+        \hline
+    \end{tabular}
+    \caption{An example table}
+    \label{tab:example}
+\end{table}
+
+\section{References}
+You can reference figures (Figure \ref{fig:example}) and tables (Table \ref{tab:example}).
+
+\section{Conclusion}
+This is just a basic example of what you can do with LaTeX. There are many more packages and features available.
+
+\end{document}
